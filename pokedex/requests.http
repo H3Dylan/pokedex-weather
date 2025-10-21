@@ -1,0 +1,41 @@
+### Liste des pokemons
+GET http://localhost:8080/api/pokemons
+
+### Créer un nouveau pokemon
+POST http://localhost:8080/api/pokemons
+Content-Type: application/json
+
+{
+  "name": "Onix",
+  "type": "ROCK",
+  "baseAttack": 45,
+  "baseDefense": 160
+}
+
+### Détail
+GET http://localhost:8080/api/pokemons/2
+
+### Détail (id inexistant)
+GET http://localhost:8080/api/pokemons/999
+
+### Debug 1
+GET http://localhost:8080/api/pokemons/debug/1
+
+### Debug 2
+GET http://localhost:8080/api/pokemons/debug/2
+
+### Effet météo (Paris) pour Squirtle (id=2)
+GET http://localhost:8080/api/weather/effect?pokemonId=2&lat=48.8566&lon=2.3522
+
+
+### Effet météo (Lyon) pour Charmander (id=1)
+GET http://localhost:8080/api/weather/effect?pokemonId=3&lat=45.7640&lon=4.8357
+
+### Effet par NOM (coords)
+GET http://localhost:8080/api/weather/effect/by-name?name=Pikachu&lat=48.8566&lon=2.3522
+
+### Effet par VILLE (id)
+GET http://localhost:8080/api/weather/effect/by-city?pokemonId=2&city=Paris&country=FR
+
+### Effet par NOM & VILLE
+GET http://localhost:8080/api/weather/effect/by-name-city?name=Charmander&city=Lyon&country=FR
