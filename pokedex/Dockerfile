@@ -10,7 +10,6 @@ RUN --mount=type=cache,target=/root/.m2 mvn -q -DskipTests package
 FROM eclipse-temurin:21-jre-alpine
 RUN addgroup -S app && adduser -S app -G app && apk add --no-cache curl
 WORKDIR /app
-# ✅ copie le .jar généré (repackagé) sans supposer *SNAPSHOT*
 COPY --from=build /workspace/target/*.jar app.jar
 USER app
 
