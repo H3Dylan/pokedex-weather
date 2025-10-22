@@ -1,0 +1,28 @@
+# src/main/resources/application-docker.yml
+spring:
+  datasource:
+    url: jdbc:h2:mem:pokedex;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+  data:
+    redis:
+      host: redis
+      port: 6379
+  cache:
+    type: redis
+
+server:
+  port: 8080
+
+management:
+  health:
+    redis:
+      enabled: false
